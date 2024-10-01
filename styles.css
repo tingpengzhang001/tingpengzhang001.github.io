@@ -62,20 +62,26 @@ nav ul li a:hover {
 
 .info {
     flex: 2; /* 右侧信息占据2份 */
+    display: flex;
+    flex-direction: column; /* 垂直方向布局 */
+    justify-content: center; /* 垂直居中对齐 */
 }
 
 h2 {
     font-size: 2em; /* 增大字体 */
     font-weight: bold; /* 加粗 */
+    margin: 0; /* 移除默认边距 */
 }
 
 h3 {
     font-size: 1.5em; /* 增大字体 */
     font-weight: bold; /* 加粗 */
+    margin: 10px 0; /* 添加上下边距 */
 }
 
 p {
     font-size: 0.9em; /* 调整其他文本的字体大小 */
+    margin: 5px 0; /* 添加上下边距 */
 }
 
 footer {
