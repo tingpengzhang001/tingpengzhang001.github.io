@@ -148,7 +148,7 @@ footer {
 }
 
 .cat-image {
-    width: 80px; /* 调整猫咪图片大小 */
+    width: 40px; /* 调整猫咪图片大小为按钮宽度的一半 */
     height: auto; /* 保持比例 */
 }
 
