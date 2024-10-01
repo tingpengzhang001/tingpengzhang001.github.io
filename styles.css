@@ -119,38 +119,22 @@ footer {
     background-color: #00509e; /* 悬停时改变背景色 */
 }
 
-/* 对话框样式 */
-.dialogue-container {
-    position: relative; /* 使对话框相对定位 */
-    margin-top: 30px; /* 向下移动小猫咪 */
+/* 座右铭按钮样式 */
+.quote-button {
     display: flex; /* 使用flex布局 */
-    align-items: flex-start; /* 垂直对齐 */
+    align-items: center; /* 垂直居中对齐 */
+    justify-content: center; /* 水平居中对齐 */
+    background-color: #003366; /* 按钮背景色 */
+    color: white; /* 按钮文字颜色 */
+    padding: 10px 15px; /* 按钮内边距 */
+    margin: 5px; /* 按钮间距 */
+    text-decoration: none; /* 移除下划线 */
+    border-radius: 5px; /* 圆角 */
+    transition: background-color 0.3s; /* 添加过渡效果 */
 }
 
-.dialogue-box {
-    background-color: #f0f0f0; /* 背景色 */
-    border: 1px solid #ccc; /* 边框 */
-    border-radius: 50px; /* 椭圆形 */
-    padding: 10px; /* 内边距 */
-    max-width: 300px; /* 最大宽度 */
-    position: relative; /* 使箭头定位相对 */
-    margin-left: 30px; /* 向右移动一个单位 */
-}
-
-.dialogue-box::after {
-    content: ''; /* 创建箭头 */
-    position: absolute;
-    top: 10px; /* 箭头位置 */
-    left: -15px; /* 箭头位置 */
-    border-width: 5px; /* 箭头大小 */
-    border-style: solid;
-    border-color: transparent #f0f0f0 transparent transparent; /* 箭头颜色 */
-}
-
-.cat-image {
-    width: 40px; /* 调整猫咪图片大小为按钮宽度的一半 */
-    height: auto; /* 保持比例 */
-    margin-top: 10px; /* 向下移动小猫咪 */
+.quote-button i {
+    margin-right: 8px; /* 图标与文本之间的间距 */
 }
 
 /* 响应式设计 */
