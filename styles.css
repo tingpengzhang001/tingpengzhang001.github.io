@@ -95,6 +95,7 @@ footer {
 .button-container {
     display: flex; /* 使用flex布局 */
     flex-direction: column; /* 垂直方向布局 */
+    align-items: flex-start; /* 左对齐 */
     margin-left: 20px; /* 添加左边距 */
 }
 
