@@ -99,7 +99,9 @@ footer {
 }
 
 .button {
-    display: inline-block; /* 使按钮在同一行显示 */
+    display: flex; /* 使用flex布局 */
+    align-items: center; /* 垂直居中对齐 */
+    justify-content: center; /* 水平居中对齐 */
     background-color: #003366; /* 按钮背景色 */
     color: white; /* 按钮文字颜色 */
     padding: 10px 15px; /* 按钮内边距 */
@@ -107,6 +109,10 @@ footer {
     text-decoration: none; /* 移除下划线 */
     border-radius: 5px; /* 圆角 */
     transition: background-color 0.3s; /* 添加过渡效果 */
+}
+
+.button i {
+    margin-right: 8px; /* 图标与文本之间的间距 */
 }
 
 .button:hover {
