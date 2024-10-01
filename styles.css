@@ -9,25 +9,63 @@ nav ul li {
     margin: 0 15px;
 }
 
+.search-container {
+    display: flex; /* 使用flex布局 */
+    align-items: center; /* 垂直居中对齐 */
+}
+
 .search-form {
     display: flex; /* 使用flex布局 */
 }
 
-.search-form input[type="text"] {
+.search-input {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-family: 'Font Awesome 5 Free'; /* 使用Font Awesome字体 */
+    font-weight: 900; /* 加粗字体 */
+    width: 150px; /* 设置宽度 */
+    font-size: 16px; /* 字体大小 */
+    color: transparent; /* 隐藏文本 */
+    text-align: center; /* 文本居中 */
 }
 
-.search-form button {
-    padding: 5px 10px;
-    border: none;
-    background-color: #003366; /* 深蓝色 */
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
+.search-input::placeholder {
+    color: #ccc; /* 占位符颜色 */
+    font-family: 'Font Awesome 5 Free'; /* 使用Font Awesome字体 */
+    font-weight: 900; /* 加粗字体 */
 }
 
-.search-form button:hover {
-    background-color: #00509e; /* 悬停时变色 */
+.search-input:focus {
+    outline: none; /* 去掉聚焦时的边框 */
+    border-color: #003366; /* 聚焦时边框颜色 */
+}
+
+.search-input::placeholder {
+    content: "\f002"; /* Font Awesome search icon */
+    font-family: "Font Awesome 5 Free"; /* 使用Font Awesome字体 */
+    font-weight: 900; /* 加粗字体 */
+}
+
+h3 {
+    display: inline; /* 使次标题在同一行 */
+    margin-right: 10px; /* 添加右边距 */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #f4f4f4;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* 在小屏幕上堆叠内容 */
+        align-items: center; /* 居中对齐 */
+    }
+    .photo {
+        margin-right: 0; /* 移除右边距 */
+        margin-bottom: 20px; /* 添加底边距 */
+    }
 }
