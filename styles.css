@@ -31,6 +31,11 @@ nav {
     line-height: 1.5; /* 调整导航栏的行高，以控制高度 */
 }
 
+nav ul li a.active {
+    font-weight: bold; /* 加粗当前链接 */
+    text-decoration: underline; /* 下划线表示当前链接 */
+}
+
 section {
     padding: 20px;
 }
