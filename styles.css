@@ -5,6 +5,7 @@ body {
     margin: 0;
 }
 
+/* 导航栏样式 */
 header {
     background: #003366; /* 深蓝色 */
     color: white;
@@ -34,11 +35,27 @@ nav {
     line-height: 1.5; /* 调整导航栏的行高，以控制高度 */
 }
 
+nav ul li a.active {
+    font-weight: bold; /* 加粗当前链接 */
+    text-decoration: underline; /* 下划线表示当前链接 */
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* 悬停时添加下划线 */
+    color: #ffcc00; /* 悬停时改变颜色 */
+}
+
 /* index.html 特定样式 */
 .index-container {
     display: flex; /* 使用Flexbox布局 */
-    justify-content: center; /* 使内容居中 */
+    flex-direction: column; /* 垂直方向布局 */
+    align-items: center; /* 水平居中对齐 */
     padding: 20px;
+}
+
+.container {
+    display: flex; /* 使用Flexbox布局 */
+    justify-content: center; /* 使内容居中 */
     max-width: 1200px; /* 设置最大宽度 */
     width: 100%; /* 使容器宽度占满 */
 }
@@ -73,6 +90,70 @@ p {
     margin: 5px 0; /* 添加上下边距 */
 }
 
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #f4f4f4;
+    width: 100%; /* 使footer宽度占满 */
+}
+
+/* 按钮样式 */
+.button-container {
+    display: flex; /* 使用flex布局 */
+    flex-direction: column; /* 垂直方向布局 */
+    margin-left: 20px; /* 添加左边距 */
+}
+
+.button {
+    display: flex; /* 使用flex布局 */
+    align-items: center; /* 垂直居中对齐 */
+    justify-content: center; /* 水平居中对齐 */
+    background-color: #003366; /* 按钮背景色 */
+    color: white; /* 按钮文字颜色 */
+    padding: 10px 15px; /* 按钮内边距 */
+    margin: 5px; /* 按钮间距 */
+    text-decoration: none; /* 移除下划线 */
+    border-radius: 5px; /* 圆角 */
+    transition: background-color 0.3s; /* 添加过渡效果 */
+}
+
+.button i {
+    margin-right: 8px; /* 图标与文本之间的间距 */
+}
+
+.button:hover {
+    background-color: #00509e; /* 悬停时改变背景色 */
+}
+
+/* 座右铭按钮样式 */
+.quote-button {
+    display: flex; /* 使用flex布局 */
+    align-items: center; /* 垂直居中对齐 */
+    justify-content: center; /* 水平居中对齐 */
+    background-color: #003366; /* 按钮背景色 */
+    color: white; /* 按钮文字颜色 */
+    padding: 10px 15px; /* 按钮内边距 */
+    margin: 5px; /* 按钮间距 */
+    text-decoration: none; /* 移除下划线 */
+    border-radius: 5px; /* 圆角 */
+    transition: background-color 0.3s; /* 添加过渡效果 */
+}
+
+.quote-button i {
+    margin-right: 8px; /* 图标与文本之间的间距 */
+}
+
+/* 链接样式 */
+.info a {
+    color: inherit; /* 继承父元素的颜色 */
+    text-decoration: none; /* 默认不显示下划线 */
+}
+
+.info a:hover {
+    text-decoration: underline; /* 悬停时添加下划线 */
+    color: #ffcc00; /* 悬停时改变颜色 */
+}
+
 /* news.html 特定样式 */
 .news-container {
     max-width: 800px; /* 设置最大宽度 */
@@ -97,16 +178,9 @@ p {
     border-radius: 10px; /* 添加圆角 */
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #f4f4f4;
-    width: 100%; /* 使footer宽度占满 */
-}
-
 /* 响应式设计 */
 @media (max-width: 768px) {
-    .index-container, .news-container {
+    .container {
         flex-direction: column; /* 在小屏幕上堆叠内容 */
         align-items: center; /* 居中对齐 */
     }
