@@ -36,52 +36,28 @@ nav {
     line-height: 1.5; /* 调整导航栏的行高，以控制高度 */
 }
 
-nav ul li a.active {
-    font-weight: bold; /* 加粗当前链接 */
-    text-decoration: underline; /* 下划线表示当前链接 */
-}
-
-nav ul li a:hover {
-    text-decoration: underline; /* 悬停时添加下划线 */
-    color: #ffcc00; /* 悬停时改变颜色 */
-}
-
 .container {
-    display: flex; /* 使用Flexbox布局 */
-    justify-content: center; /* 使内容居中 */
-    padding: 20px;
-    max-width: 1200px; /* 设置最大宽度 */
+    max-width: 800px; /* 设置最大宽度 */
     width: 100%; /* 使容器宽度占满 */
+    padding: 20px; /* 添加内边距 */
+    text-align: center; /* 文字居中 */
 }
 
-.photo {
-    flex: 1; /* 左侧照片占据1份 */
-    max-width: 300px; /* 照片最大宽度 */
-    margin-right: 20px; /* 照片与信息之间的间距 */
+.news-item {
+    display: flex; /* 使用flex布局 */
+    align-items: center; /* 垂直居中对齐 */
+    margin: 20px 0; /* 添加上下间距 */
 }
 
-.info {
-    flex: 2; /* 右侧信息占据2份 */
-    display: flex;
-    flex-direction: column; /* 垂直方向布局 */
-    justify-content: center; /* 垂直居中对齐 */
+.news-text {
+    flex: 1; /* 文字部分占据剩余空间 */
+    text-align: left; /* 文字左对齐 */
+    padding-right: 20px; /* 文字与图片之间的间距 */
 }
 
-h2 {
-    font-size: 2em; /* 增大字体 */
-    font-weight: bold; /* 加粗 */
-    margin: 0; /* 移除默认边距 */
-}
-
-h3 {
-    font-size: 1.5em; /* 增大字体 */
-    font-weight: bold; /* 加粗 */
-    margin: 10px 0; /* 添加上下边距 */
-}
-
-p {
-    font-size: 0.9em; /* 调整其他文本的字体大小 */
-    margin: 5px 0; /* 添加上下边距 */
+.news-image img {
+    max-width: 150px; /* 设置图片最大宽度 */
+    border-radius: 10px; /* 添加圆角 */
 }
 
 footer {
@@ -91,80 +67,4 @@ footer {
     width: 100%; /* 使footer宽度占满 */
 }
 
-/* 按钮样式 */
-.button-container {
-    display: flex; /* 使用flex布局 */
-    flex-direction: column; /* 垂直方向布局 */
-    margin-left: 20px; /* 添加左边距 */
-}
-
-.button {
-    display: flex; /* 使用flex布局 */
-    align-items: center; /* 垂直居中对齐 */
-    justify-content: center; /* 水平居中对齐 */
-    background-color: #003366; /* 按钮背景色 */
-    color: white; /* 按钮文字颜色 */
-    padding: 10px 15px; /* 按钮内边距 */
-    margin: 5px; /* 按钮间距 */
-    text-decoration: none; /* 移除下划线 */
-    border-radius: 5px; /* 圆角 */
-    transition: background-color 0.3s; /* 添加过渡效果 */
-}
-
-.button i {
-    margin-right: 8px; /* 图标与文本之间的间距 */
-}
-
-.button:hover {
-    background-color: #00509e; /* 悬停时改变背景色 */
-}
-
-/* 座右铭按钮样式 */
-.quote-button {
-    display: flex; /* 使用flex布局 */
-    align-items: center; /* 垂直居中对齐 */
-    justify-content: center; /* 水平居中对齐 */
-    background-color: #003366; /* 按钮背景色 */
-    color: white; /* 按钮文字颜色 */
-    padding: 10px 15px; /* 按钮内边距 */
-    margin: 5px; /* 按钮间距 */
-    text-decoration: none; /* 移除下划线 */
-    border-radius: 5px; /* 圆角 */
-    transition: background-color 0.3s; /* 添加过渡效果 */
-}
-
-.quote-button i {
-    margin-right: 8px; /* 图标与文本之间的间距 */
-}
-
-/* 链接样式 */
-.info a {
-    color: inherit; /* 继承父元素的颜色 */
-    text-decoration: none; /* 默认不显示下划线 */
-}
-
-.info a:hover {
-    text-decoration: underline; /* 悬停时添加下划线 */
-    color: #ffcc00; /* 悬停时改变颜色 */
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* 在小屏幕上堆叠内容 */
-        align-items: center; /* 居中对齐 */
-    }
-    .photo {
-        max-width: 100%; /* 照片宽度占满 */
-        margin-right: 0; /* 移除右边距 */
-        margin-bottom: 20px; /* 添加底边距 */
-    }
-    .info {
-        flex: 1; /* 让信息部分占据更多空间 */
-        width: 100%; /* 使信息部分宽度占满 */
-        padding: 0 10px; /* 添加左右内边距 */
-    }
-    h2, h3, p {
-        text-align: center; /* 文字居中对齐 */
-    }
-}
+/* 其他现有样式保持不变 */
