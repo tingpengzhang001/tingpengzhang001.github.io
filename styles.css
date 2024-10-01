@@ -2,6 +2,9 @@ body {
     font-family: 'Lora', serif; /* 使用 Lora 作为正文字体 */
     line-height: 1.6;
     margin: 0;
+    display: flex; /* 使用flex布局 */
+    flex-direction: column; /* 垂直方向布局 */
+    align-items: center; /* 水平居中对齐 */
 }
 
 header {
@@ -9,6 +12,7 @@ header {
     color: white;
     padding: 10px 0; /* 调整顶部和底部的内边距 */
     text-align: center;
+    width: 100%; /* 使header宽度占满 */
 }
 
 nav ul {
@@ -46,6 +50,8 @@ nav ul li a:hover {
     display: flex; /* 使用Flexbox布局 */
     justify-content: center; /* 使内容居中 */
     padding: 20px;
+    max-width: 1200px; /* 设置最大宽度 */
+    width: 100%; /* 使容器宽度占满 */
 }
 
 .photo {
@@ -76,6 +82,7 @@ footer {
     text-align: center;
     padding: 20px;
     background: #f4f4f4;
+    width: 100%; /* 使footer宽度占满 */
 }
 
 /* 响应式设计 */
