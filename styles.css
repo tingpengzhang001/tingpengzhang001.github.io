@@ -1,8 +1,22 @@
+body {
+    font-family: 'Lora', serif; /* 使用 Lora 作为正文字体 */
+    line-height: 1.6;
+    margin: 0;
+}
+
+header {
+    background: #003366; /* 深蓝色 */
+    color: white;
+    padding: 10px 0; /* 调整顶部和底部的内边距 */
+    text-align: center;
+}
+
 nav ul {
     padding: 0;
     list-style: none;
     display: flex; /* 使用flex布局 */
     align-items: center; /* 垂直居中对齐 */
+    justify-content: center; /* 水平居中对齐 */
 }
 
 nav ul li {
@@ -22,23 +36,22 @@ nav ul li {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-family: 'Font Awesome 5 Free'; /* 使用Font Awesome字体 */
-    font-weight: 900; /* 加粗字体 */
-    width: 150px; /* 设置宽度 */
     font-size: 16px; /* 字体大小 */
-    color: transparent; /* 隐藏文本 */
-    text-align: center; /* 文本居中 */
+    width: 150px; /* 设置宽度 */
 }
 
 .search-input::placeholder {
     color: #ccc; /* 占位符颜色 */
-    font-family: 'Font Awesome 5 Free'; /* 使用Font Awesome字体 */
-    font-weight: 900; /* 加粗字体 */
 }
 
 .search-input:focus {
     outline: none; /* 去掉聚焦时的边框 */
-    border-color: #003366; /* 聚焦时边框颜色 */
+    border-color: #00509e; /* 聚焦时边框颜色 */
+}
+
+.search-input {
+    font-family: 'Font Awesome 5 Free'; /* 使用Font Awesome字体 */
+    font-weight: 900; /* 加粗字体 */
 }
 
 .search-input::placeholder {
@@ -47,9 +60,12 @@ nav ul li {
     font-weight: 900; /* 加粗字体 */
 }
 
+h2 {
+    margin-top: 20px; /* 添加顶部间距 */
+}
+
 h3 {
-    display: inline; /* 使次标题在同一行 */
-    margin-right: 10px; /* 添加右边距 */
+    margin-top: 20px; /* 添加顶部间距 */
 }
 
 footer {
