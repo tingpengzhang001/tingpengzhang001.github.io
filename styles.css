@@ -1,91 +1,33 @@
-body {
-    font-family: 'Lora', serif; /* 使用 Lora 作为正文字体 */
-    line-height: 1.6;
-    margin: 0;
-}
-
-header {
-    background: #003366; /* 深蓝色 */
-    color: white;
-    padding: 10px 0; /* 调整顶部和底部的内边距 */
-    text-align: center;
-}
-
 nav ul {
     padding: 0;
     list-style: none;
+    display: flex; /* 使用flex布局 */
+    align-items: center; /* 垂直居中对齐 */
 }
 
 nav ul li {
-    display: inline;
     margin: 0 15px;
 }
 
-nav ul li a {
+.search-form {
+    display: flex; /* 使用flex布局 */
+}
+
+.search-form input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-form button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #003366; /* 深蓝色 */
     color: white;
-    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-nav {
-    line-height: 1.5; /* 调整导航栏的行高，以控制高度 */
-}
-
-nav ul li a.active {
-    font-weight: bold; /* 加粗当前链接 */
-    text-decoration: underline; /* 下划线表示当前链接 */
-}
-
-nav ul li a:hover {
-    text-decoration: underline; /* 悬停时添加下划线 */
-    color: #ffcc00; /* 悬停时改变颜色 */
-}
-
-.container {
-    display: flex; /* 使用Flexbox布局 */
-    justify-content: center; /* 使内容居中 */
-    padding: 20px;
-}
-
-.photo {
-    flex: 1; /* 左侧照片占据1份 */
-    max-width: 300px; /* 照片最大宽度 */
-    margin-right: 20px; /* 照片与信息之间的间距 */
-}
-
-.info {
-    flex: 2; /* 右侧信息占据2份 */
-}
-
-h2 {
-    font-family: 'Roboto', sans-serif; /* 使用 Roboto 作为标题字体 */
-    font-size: 2em; /* 增大字体 */
-    font-weight: bold; /* 加粗 */
-}
-
-h3 {
-    font-family: 'Roboto', sans-serif; /* 使用 Roboto 作为小标题字体 */
-    font-size: 1.5em; /* 增大字体 */
-    font-weight: bold; /* 加粗 */
-}
-
-p {
-    font-size: 0.9em; /* 调整其他文本的字体大小 */
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #f4f4f4;
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* 在小屏幕上堆叠内容 */
-        align-items: center; /* 居中对齐 */
-    }
-    .photo {
-        margin-right: 0; /* 移除右边距 */
-        margin-bottom: 20px; /* 添加底边距 */
-    }
+.search-form button:hover {
+    background-color: #00509e; /* 悬停时变色 */
 }
