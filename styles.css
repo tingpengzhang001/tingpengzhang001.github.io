@@ -1,10 +1,8 @@
+/* 通用样式 */
 body {
     font-family: 'Lora', serif; /* 使用 Lora 作为正文字体 */
     line-height: 1.6;
     margin: 0;
-    display: flex; /* 使用flex布局 */
-    flex-direction: column; /* 垂直方向布局 */
-    align-items: center; /* 水平居中对齐 */
 }
 
 header {
@@ -36,7 +34,30 @@ nav {
     line-height: 1.5; /* 调整导航栏的行高，以控制高度 */
 }
 
-.container {
+/* index.html 特定样式 */
+.index-container {
+    display: flex; /* 使用Flexbox布局 */
+    justify-content: center; /* 使内容居中 */
+    padding: 20px;
+    max-width: 1200px; /* 设置最大宽度 */
+    width: 100%; /* 使容器宽度占满 */
+}
+
+.photo {
+    flex: 1; /* 左侧照片占据1份 */
+    max-width: 300px; /* 照片最大宽度 */
+    margin-right: 20px; /* 照片与信息之间的间距 */
+}
+
+.info {
+    flex: 2; /* 右侧信息占据2份 */
+    display: flex;
+    flex-direction: column; /* 垂直方向布局 */
+    justify-content: center; /* 垂直居中对齐 */
+}
+
+/* news.html 特定样式 */
+.news-container {
     max-width: 800px; /* 设置最大宽度 */
     width: 100%; /* 使容器宽度占满 */
     padding: 20px; /* 添加内边距 */
