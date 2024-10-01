@@ -1,46 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Website</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Welcome to Tingpeng's Personal Website!</h1>
-        <nav>
-            <ul>
-                <li><a href="news.html">News</a></li>
-                <li><a href="cv.html">CV</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="publications.html">Publications</a></li>
-            </ul>
-        </nav>
-    </header>
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+}
 
-    <section id="news">
-        <h2>News</h2>
-        <p>This is where you can share your latest news and updates.</p>
-    </section>
+header {
+    background: #003366; /* 深蓝色 */
+    color: white;
+    padding: 10px 0; /* 调整顶部和底部的内边距 */
+    text-align: center;
+}
 
-    <section id="cv">
-        <h2>CV</h2>
-        <p>Your CV information can be displayed here.</p>
-    </section>
+nav ul {
+    padding: 0;
+    list-style: none;
+}
 
-    <section id="research">
-        <h2>Research</h2>
-        <p>This section can include details about your research interests and projects.</p>
-    </section>
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
 
-    <section id="publications">
-        <h2>Publications</h2>
-        <p>Here you can list your published works.</p>
-    </section>
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
 
-    <footer>
-        <p>&copy; 2024 Your Name</p>
-    </footer>
-</body>
-</html>
+/* 新增导航栏样式以控制高度 */
+nav {
+    line-height: 1.5; /* 调整导航栏的行高，以控制高度 */
+}
+
+nav ul li a.active {
+    font-weight: bold; /* 加粗当前链接 */
+    text-decoration: underline; /* 下划线表示当前链接 */
+}
+
+section {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #f4f4f4;
+}
