@@ -122,7 +122,7 @@ footer {
 /* 对话框样式 */
 .dialogue-container {
     position: relative; /* 使对话框相对定位 */
-    margin-top: 20px; /* 向下移动一个单位 */
+    margin-top: 30px; /* 向下移动小猫咪 */
     display: flex; /* 使用flex布局 */
     align-items: flex-start; /* 垂直对齐 */
 }
@@ -134,14 +134,14 @@ footer {
     padding: 10px; /* 内边距 */
     max-width: 300px; /* 最大宽度 */
     position: relative; /* 使箭头定位相对 */
-    margin-left: 20px; /* 向右移动一个单位 */
+    margin-left: 30px; /* 向右移动一个单位 */
 }
 
 .dialogue-box::after {
     content: ''; /* 创建箭头 */
     position: absolute;
     top: 10px; /* 箭头位置 */
-    left: -10px; /* 箭头位置 */
+    left: -15px; /* 箭头位置 */
     border-width: 5px; /* 箭头大小 */
     border-style: solid;
     border-color: transparent #f0f0f0 transparent transparent; /* 箭头颜色 */
@@ -150,6 +150,7 @@ footer {
 .cat-image {
     width: 40px; /* 调整猫咪图片大小为按钮宽度的一半 */
     height: auto; /* 保持比例 */
+    margin-top: 10px; /* 向下移动小猫咪 */
 }
 
 /* 响应式设计 */
