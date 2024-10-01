@@ -14,10 +14,12 @@ header {
 nav ul {
     padding: 0;
     list-style: none;
+    display: flex; /* 使用flex布局 */
+    align-items: center; /* 垂直居中对齐 */
+    justify-content: center; /* 水平居中对齐 */
 }
 
 nav ul li {
-    display: inline;
     margin: 0 15px;
 }
 
@@ -57,13 +59,11 @@ nav ul li a:hover {
 }
 
 h2 {
-    font-family: 'Roboto', sans-serif; /* 使用 Roboto 作为标题字体 */
     font-size: 2em; /* 增大字体 */
     font-weight: bold; /* 加粗 */
 }
 
 h3 {
-    font-family: 'Roboto', sans-serif; /* 使用 Roboto 作为小标题字体 */
     font-size: 1.5em; /* 增大字体 */
     font-weight: bold; /* 加粗 */
 }
