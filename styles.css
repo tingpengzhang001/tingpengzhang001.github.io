@@ -91,6 +91,26 @@ footer {
     width: 100%; /* 使footer宽度占满 */
 }
 
+/* 按钮样式 */
+.button-container {
+    margin-top: 20px; /* 添加顶部间距 */
+}
+
+.button {
+    display: inline-block; /* 使按钮在同一行显示 */
+    background-color: #003366; /* 按钮背景色 */
+    color: white; /* 按钮文字颜色 */
+    padding: 10px 15px; /* 按钮内边距 */
+    margin: 5px; /* 按钮间距 */
+    text-decoration: none; /* 移除下划线 */
+    border-radius: 5px; /* 圆角 */
+    transition: background-color 0.3s; /* 添加过渡效果 */
+}
+
+.button:hover {
+    background-color: #00509e; /* 悬停时改变背景色 */
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .container {
