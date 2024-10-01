@@ -1,165 +1,65 @@
-body {
-    font-family: 'Lora', serif; /* 使用 Lora 作为正文字体 */
-    line-height: 1.6;
-    margin: 0;
-    display: flex; /* 使用flex布局 */
-    flex-direction: column; /* 垂直方向布局 */
-    align-items: center; /* 水平居中对齐 */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Tingpeng's Personal Website!</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="cv.html">Cover Letter</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+            </ul>
+        </nav>
+    </header>
 
-header {
-    background: #003366; /* 深蓝色 */
-    color: white;
-    padding: 10px 0; /* 调整顶部和底部的内边距 */
-    text-align: center;
-    width: 100%; /* 使header宽度占满 */
-}
+    <div class="container">
+        <div class="photo">
+            <img src="tingpengzhang.jpg" alt="Tingpeng Zhang" style="width: 100%; border-radius: 10px;">
+        </div>
+        <div class="info">
+            <h2>Tingpeng Zhang</h2>
+            <p><strong>PhD Student</strong></p>
+            <p>Thrust of Intelligent Transportation</p>
+            <p>The Hong Kong University of Science and Technology (Guangzhou), China</p>
 
-nav ul {
-    padding: 0;
-    list-style: none;
-    display: flex; /* 使用flex布局 */
-    align-items: center; /* 垂直居中对齐 */
-    justify-content: center; /* 水平居中对齐 */
-}
+            <h3>Research Interests</h3>
+            <p><strong>Machine Learning (ML)</strong></p>
+            <p>Deep learning, Computer vision, Transfer learning, Physical neural networks (PNNs).</p>
+            
+            <p><strong>Structural Health Monitoring (SHM)</strong></p>
+            <p>Damage detection, Model updating, modal identification.</p>
 
-nav ul li {
-    margin: 0 15px;
-}
+            <p><strong>Vehicle-bridge Interaction (VBI)</strong></p>
+            <p>Vehicle scanning method, Vehicular parameter identification, Road roughness estimation.</p>
+        </div>
+        <div class="button-container">
+            <h3>Connect with Me</h3>
+            <a href="https://scholar.google.com" target="_blank" class="button"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+            <a href="https://www.researchgate.net" target="_blank" class="button"><i class="fas fa-users"></i> ResearchGate</a>
+            <a href="https://github.com/ztp001" target="_blank" class="button"><i class="fab fa-github"></i> GitHub</a>
+            <a href="mailto:your-email@example.com" class="button"><i class="fas fa-envelope"></i> E-mail</a>
+            <!-- 添加对话框和小猫咪 -->
+            <div class="dialogue-container">
+                <img src="cat.jpg" alt="Cat" class="cat-image">
+                <div class="dialogue-box">
+                    <p>Life is a fucking movie!</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-nav {
-    line-height: 1.5; /* 调整导航栏的行高，以控制高度 */
-}
-
-nav ul li a.active {
-    font-weight: bold; /* 加粗当前链接 */
-    text-decoration: underline; /* 下划线表示当前链接 */
-}
-
-nav ul li a:hover {
-    text-decoration: underline; /* 悬停时添加下划线 */
-    color: #ffcc00; /* 悬停时改变颜色 */
-}
-
-.container {
-    display: flex; /* 使用Flexbox布局 */
-    justify-content: center; /* 使内容居中 */
-    padding: 20px;
-    max-width: 1200px; /* 设置最大宽度 */
-    width: 100%; /* 使容器宽度占满 */
-}
-
-.photo {
-    flex: 1; /* 左侧照片占据1份 */
-    max-width: 300px; /* 照片最大宽度 */
-    margin-right: 20px; /* 照片与信息之间的间距 */
-}
-
-.info {
-    flex: 2; /* 右侧信息占据2份 */
-    display: flex;
-    flex-direction: column; /* 垂直方向布局 */
-    justify-content: center; /* 垂直居中对齐 */
-}
-
-h2 {
-    font-size: 2em; /* 增大字体 */
-    font-weight: bold; /* 加粗 */
-    margin: 0; /* 移除默认边距 */
-}
-
-h3 {
-    font-size: 1.5em; /* 增大字体 */
-    font-weight: bold; /* 加粗 */
-    margin: 10px 0; /* 添加上下边距 */
-}
-
-p {
-    font-size: 0.9em; /* 调整其他文本的字体大小 */
-    margin: 5px 0; /* 添加上下边距 */
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #f4f4f4;
-    width: 100%; /* 使footer宽度占满 */
-}
-
-/* 按钮样式 */
-.button-container {
-    display: flex; /* 使用flex布局 */
-    flex-direction: column; /* 垂直方向布局 */
-    margin-left: 20px; /* 添加左边距 */
-}
-
-.button {
-    display: flex; /* 使用flex布局 */
-    align-items: center; /* 垂直居中对齐 */
-    justify-content: center; /* 水平居中对齐 */
-    background-color: #003366; /* 按钮背景色 */
-    color: white; /* 按钮文字颜色 */
-    padding: 10px 15px; /* 按钮内边距 */
-    margin: 5px; /* 按钮间距 */
-    text-decoration: none; /* 移除下划线 */
-    border-radius: 5px; /* 圆角 */
-    transition: background-color 0.3s; /* 添加过渡效果 */
-}
-
-.button i {
-    margin-right: 8px; /* 图标与文本之间的间距 */
-}
-
-.button:hover {
-    background-color: #00509e; /* 悬停时改变背景色 */
-}
-
-/* 对话框样式 */
-.dialogue-container {
-    position: relative; /* 使对话框相对定位 */
-    margin-top: 20px; /* 向下移动一个单位 */
-    display: flex; /* 使用flex布局 */
-    align-items: flex-start; /* 垂直对齐 */
-}
-
-.dialogue-box {
-    background-color: #f0f0f0; /* 背景色 */
-    border: 1px solid #ccc; /* 边框 */
-    border-radius: 50px; /* 椭圆形 */
-    padding: 10px; /* 内边距 */
-    max-width: 300px; /* 最大宽度 */
-    position: relative; /* 使箭头定位相对 */
-    margin-left: 20px; /* 向右移动一个单位 */
-}
-
-.dialogue-box::after {
-    content: ''; /* 创建箭头 */
-    position: absolute;
-    top: 10px; /* 箭头位置 */
-    left: -10px; /* 箭头位置 */
-    border-width: 5px; /* 箭头大小 */
-    border-style: solid;
-    border-color: transparent #f0f0f0 transparent transparent; /* 箭头颜色 */
-}
-
-.cat-image {
-    width: 40px; /* 调整猫咪图片大小为按钮宽度的一半 */
-    height: auto; /* 保持比例 */
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* 在小屏幕上堆叠内容 */
-        align-items: center; /* 居中对齐 */
-    }
-    .photo {
-        margin-right: 0; /* 移除右边距 */
-        margin-bottom: 20px; /* 添加底边距 */
-    }
-}
+    <footer>
+        <p>&copy; 2024 Tingpeng Zhang</p>
+    </footer>
+</body>
+</html>
