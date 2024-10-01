@@ -56,6 +56,23 @@ nav {
     justify-content: center; /* 垂直居中对齐 */
 }
 
+h2 {
+    font-size: 2em; /* 增大字体 */
+    font-weight: bold; /* 加粗 */
+    margin: 0; /* 移除默认边距 */
+}
+
+h3 {
+    font-size: 1.5em; /* 增大字体 */
+    font-weight: bold; /* 加粗 */
+    margin: 10px 0; /* 添加上下边距 */
+}
+
+p {
+    font-size: 0.9em; /* 调整其他文本的字体大小 */
+    margin: 5px 0; /* 添加上下边距 */
+}
+
 /* news.html 特定样式 */
 .news-container {
     max-width: 800px; /* 设置最大宽度 */
@@ -66,14 +83,14 @@ nav {
 
 .news-item {
     display: flex; /* 使用flex布局 */
-    flex-direction: column; /* 垂直方向布局 */
-    align-items: center; /* 水平居中对齐 */
+    align-items: center; /* 垂直居中对齐 */
     margin: 20px 0; /* 添加上下间距 */
 }
 
 .news-text {
+    flex: 1; /* 文字部分占据剩余空间 */
     text-align: left; /* 文字左对齐 */
-    margin-bottom: 10px; /* 添加底部间距 */
+    margin-right: 10px; /* 添加右边距 */
 }
 
 .news-image img {
@@ -86,4 +103,25 @@ footer {
     padding: 20px;
     background: #f4f4f4;
     width: 100%; /* 使footer宽度占满 */
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .index-container, .news-container {
+        flex-direction: column; /* 在小屏幕上堆叠内容 */
+        align-items: center; /* 居中对齐 */
+    }
+    .photo {
+        max-width: 100%; /* 照片宽度占满 */
+        margin-right: 0; /* 移除右边距 */
+        margin-bottom: 20px; /* 添加底边距 */
+    }
+    .info {
+        flex: 1; /* 让信息部分占据更多空间 */
+        width: 100%; /* 使信息部分宽度占满 */
+        padding: 0 10px; /* 添加左右内边距 */
+    }
+    h2, h3, p {
+        text-align: center; /* 文字居中对齐 */
+    }
 }
