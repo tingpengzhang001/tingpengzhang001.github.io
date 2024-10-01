@@ -104,6 +104,57 @@ footer {
     width: 100%; /* 使footer宽度占满 */
 }
 
+/* 按钮样式 */
+.button {
+    display: flex; /* 使用flex布局 */
+    align-items: center; /* 垂直居中对齐 */
+    justify-content: center; /* 水平居中对齐 */
+    background-color: #003366; /* 按钮背景色 */
+    color: white; /* 按钮文字颜色 */
+    padding: 10px 15px; /* 按钮内边距 */
+    margin: 5px; /* 按钮间距 */
+    text-decoration: none; /* 移除下划线 */
+    border-radius: 5px; /* 圆角 */
+    transition: background-color 0.3s; /* 添加过渡效果 */
+}
+
+.button i {
+    margin-right: 8px; /* 图标与文本之间的间距 */
+}
+
+.button:hover {
+    background-color: #00509e; /* 悬停时改变背景色 */
+}
+
+/* 座右铭按钮样式 */
+.quote-button {
+    display: flex; /* 使用flex布局 */
+    align-items: center; /* 垂直居中对齐 */
+    justify-content: center; /* 水平居中对齐 */
+    background-color: #003366; /* 按钮背景色 */
+    color: white; /* 按钮文字颜色 */
+    padding: 10px 15px; /* 按钮内边距 */
+    margin: 5px; /* 按钮间距 */
+    text-decoration: none; /* 移除下划线 */
+    border-radius: 5px; /* 圆角 */
+    transition: background-color 0.3s; /* 添加过渡效果 */
+}
+
+.quote-button i {
+    margin-right: 8px; /* 图标与文本之间的间距 */
+}
+
+/* 链接样式 */
+.info a {
+    color: inherit; /* 继承父元素的颜色 */
+    text-decoration: none; /* 默认不显示下划线 */
+}
+
+.info a:hover {
+    text-decoration: underline; /* 悬停时添加下划线 */
+    color: #ffcc00; /* 悬停时改变颜色 */
+}
+
 /* news.html 特定样式 */
 .news-container {
     max-width: 800px; /* 设置最大宽度 */
@@ -131,12 +182,26 @@ footer {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    .news-item {
+    .container {
         flex-direction: column; /* 在小屏幕上堆叠内容 */
         align-items: center; /* 居中对齐 */
     }
-    .news-text {
+    .photo {
+        max-width: 100%; /* 照片宽度占满 */
         margin-right: 0; /* 移除右边距 */
-        margin-bottom: 10px; /* 添加底边距 */
+        margin-bottom: 20px; /* 添加底边距 */
+    }
+    .info {
+        flex: 1; /* 让信息部分占据更多空间 */
+        width: 100%; /* 使信息部分宽度占满 */
+        padding: 0 10px; /* 添加左右内边距 */
+    }
+    .button-container {
+        margin-left: 0; /* 移除左边距 */
+        width: 100%; /* 使按钮部分宽度占满 */
+        align-items: center; /* 居中对齐 */
+    }
+    h2, h3, p {
+        text-align: center; /* 文字居中对齐 */
     }
 }
