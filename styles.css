@@ -14,58 +14,62 @@ header {
 nav ul {
     padding: 0;
     list-style: none;
-    display: flex; /* 使用flex布局 */
-    align-items: center; /* 垂直居中对齐 */
-    justify-content: center; /* 水平居中对齐 */
 }
 
 nav ul li {
+    display: inline;
     margin: 0 15px;
 }
 
-.search-container {
-    display: flex; /* 使用flex布局 */
-    align-items: center; /* 垂直居中对齐 */
+nav ul li a {
+    color: white;
+    text-decoration: none;
 }
 
-.search-form {
-    display: flex; /* 使用flex布局 */
+nav {
+    line-height: 1.5; /* 调整导航栏的行高，以控制高度 */
 }
 
-.search-input {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px; /* 字体大小 */
-    width: 150px; /* 设置宽度 */
+nav ul li a.active {
+    font-weight: bold; /* 加粗当前链接 */
+    text-decoration: underline; /* 下划线表示当前链接 */
 }
 
-.search-input::placeholder {
-    color: #ccc; /* 占位符颜色 */
+nav ul li a:hover {
+    text-decoration: underline; /* 悬停时添加下划线 */
+    color: #ffcc00; /* 悬停时改变颜色 */
 }
 
-.search-input:focus {
-    outline: none; /* 去掉聚焦时的边框 */
-    border-color: #00509e; /* 聚焦时边框颜色 */
+.container {
+    display: flex; /* 使用Flexbox布局 */
+    justify-content: center; /* 使内容居中 */
+    padding: 20px;
 }
 
-.search-input {
-    font-family: 'Font Awesome 5 Free'; /* 使用Font Awesome字体 */
-    font-weight: 900; /* 加粗字体 */
+.photo {
+    flex: 1; /* 左侧照片占据1份 */
+    max-width: 300px; /* 照片最大宽度 */
+    margin-right: 20px; /* 照片与信息之间的间距 */
 }
 
-.search-input::placeholder {
-    content: "\f002"; /* Font Awesome search icon */
-    font-family: "Font Awesome 5 Free"; /* 使用Font Awesome字体 */
-    font-weight: 900; /* 加粗字体 */
+.info {
+    flex: 2; /* 右侧信息占据2份 */
 }
 
 h2 {
-    margin-top: 20px; /* 添加顶部间距 */
+    font-family: 'Roboto', sans-serif; /* 使用 Roboto 作为标题字体 */
+    font-size: 2em; /* 增大字体 */
+    font-weight: bold; /* 加粗 */
 }
 
 h3 {
-    margin-top: 20px; /* 添加顶部间距 */
+    font-family: 'Roboto', sans-serif; /* 使用 Roboto 作为小标题字体 */
+    font-size: 1.5em; /* 增大字体 */
+    font-weight: bold; /* 加粗 */
+}
+
+p {
+    font-size: 0.9em; /* 调整其他文本的字体大小 */
 }
 
 footer {
