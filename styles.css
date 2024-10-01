@@ -5,9 +5,9 @@ body {
 }
 
 header {
-    background: #4CAF50;
+    background: #003366; /* 深蓝色 */
     color: white;
-    padding: 10px 0;
+    padding: 10px 0; /* 调整顶部和底部的内边距 */
     text-align: center;
 }
 
@@ -26,6 +26,11 @@ nav ul li a {
     text-decoration: none;
 }
 
+/* 新增导航栏样式以控制高度 */
+nav {
+    line-height: 1.5; /* 调整导航栏的行高，以控制高度 */
+}
+
 section {
     padding: 20px;
 }
@@ -35,4 +40,3 @@ footer {
     padding: 20px;
     background: #f4f4f4;
 }
-
