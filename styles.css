@@ -38,6 +38,7 @@ nav ul li a.active {
 
 .container {
     display: flex; /* 使用Flexbox布局 */
+    justify-content: center; /* 使内容居中 */
     padding: 20px;
 }
 
@@ -49,6 +50,20 @@ nav ul li a.active {
 
 .info {
     flex: 2; /* 右侧信息占据2份 */
+}
+
+h2 {
+    font-size: 2em; /* 增大字体 */
+    font-weight: bold; /* 加粗 */
+}
+
+h3 {
+    font-size: 1.5em; /* 增大字体 */
+    font-weight: bold; /* 加粗 */
+}
+
+p {
+    font-size: 0.9em; /* 调整其他文本的字体大小 */
 }
 
 footer {
