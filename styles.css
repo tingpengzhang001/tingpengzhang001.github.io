@@ -26,7 +26,6 @@ nav ul li a {
     text-decoration: none;
 }
 
-/* 新增导航栏样式以控制高度 */
 nav {
     line-height: 1.5; /* 调整导航栏的行高，以控制高度 */
 }
@@ -39,6 +38,7 @@ nav ul li a.active {
 .container {
     display: flex; /* 使用Flexbox布局 */
     justify-content: center; /* 使内容居中 */
+    align-items: flex-start; /* 垂直对齐 */
     padding: 20px;
 }
 
