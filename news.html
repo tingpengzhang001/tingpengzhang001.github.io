@@ -18,13 +18,15 @@
             height: 100%; /* 全屏 */
             overflow: auto; /* 如果需要，添加滚动条 */
             background-color: rgba(0, 0, 0, 0.8); /* 半透明背景 */
+            display: flex; /* 使用flex布局 */
+            justify-content: center; /* 水平居中对齐 */
+            align-items: center; /* 垂直居中对齐 */
         }
 
         .modal-content {
-            margin: auto;
             display: block;
-            width: 80%; /* 设置宽度 */
-            max-width: 700px; /* 最大宽度 */
+            max-width: 90%; /* 最大宽度 */
+            max-height: 90%; /* 最大高度 */
         }
 
         .close {
@@ -97,7 +99,7 @@
         function openModal(img) {
             const modal = document.getElementById("myModal");
             const modalImg = document.getElementById("img01");
-            modal.style.display = "block";
+            modal.style.display = "flex"; // 使用flex布局
             modalImg.src = img.src;
         }
 
