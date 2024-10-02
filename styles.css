@@ -78,7 +78,7 @@ nav ul li a:hover {
     flex-direction: column; /* 垂直方向布局 */
     margin-left: 20px; /* 添加左边距 */
     flex: 1; /* 让按钮部分占据1份 */
-    max-width: 250px; /* 设置按钮容器的最大宽度 */
+    max-width: 300px; /* 设置按钮容器的最大宽度 */
 }
 
 h2 {
