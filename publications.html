@@ -9,12 +9,16 @@
     <style>
         .publications {
             margin-top: 20px;
+            text-align: center;
         }
         .publications li {
             margin-bottom: 15px;
             font-family: 'Roboto', sans-serif;
             font-size: 16px;
             line-height: 1.5;
+            text-align: left;
+            display: inline-block;
+            width: 80%;
         }
         .publications li .title {
             font-weight: bold;
@@ -24,6 +28,13 @@
         }
         .publications li .status {
             color: #555;
+        }
+        .publications li a {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+        .publications li a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -42,35 +53,34 @@
     </header>
 
     <div class="container">
-        <h2>Publications</h2>
-        <p>Here are some of my recent publications:</p>
+        <h2 style="text-align: center;">Publications</h2>
         <ul class="publications">
             <li>
-                <span class="title">Mechanical in-sensor computing: A programmable meta-sensor for structural damage classification without external electronic power</span><br>
+                <a href="https://example.com/paper1" class="title">Mechanical in-sensor computing: A programmable meta-sensor for structural damage classification without external electronic power</a><br>
                 <span class="authors">Tingpeng Zhang, Xuzhang Peng, Mingyuan Zhou, ..., Zhilu Lai</span><br>
                 <span class="journal">Mechanical Systems and Signal Processing</span>, September 2025<br>
                 <span class="status">Article, Private full-text</span>
             </li>
             <li>
-                <span class="title">Extracting bridge frequencies and damping ratios using damped vibrations of a non-moving vehicle</span><br>
+                <a href="https://example.com/paper2" class="title">Extracting bridge frequencies and damping ratios using damped vibrations of a non-moving vehicle</a><br>
                 <span class="authors">Tingpeng Zhang, Ziluo Xiong, Jin Zhu, ..., Yongle Li</span><br>
                 <span class="journal">Mechanical Systems and Signal Processing</span>, August 2025<br>
                 <span class="status">Article, Private full-text</span>
             </li>
             <li>
-                <span class="title">Machine learning-empowered intelligent vehicle–bridge systems: Current status and future prospects</span><br>
+                <a href="https://example.com/paper3" class="title">Machine learning-empowered intelligent vehicle–bridge systems: Current status and future prospects</a><br>
                 <span class="authors">Jin Zhu, Wei Cheng, Tingpeng Zhang, ..., Yongle Li</span><br>
                 <span class="journal">Structures</span>, March 2025<br>
                 <span class="status">Article, Private full-text</span>
             </li>
             <li>
-                <span class="title">Extracting Bridge Frequencies from The Dynamic Responses of Moving and Non-moving Vehicles</span><br>
+                <a href="https://example.com/paper4" class="title">Extracting Bridge Frequencies from The Dynamic Responses of Moving and Non-moving Vehicles</a><br>
                 <span class="authors">Tingpeng Zhang, Ziluo Xiong, Jin Zhu, ..., Yongle Li</span><br>
                 <span class="journal">Journal of Sound and Vibration</span>, June 2023<br>
                 <span class="status">Article, Private full-text</span>
             </li>
             <li>
-                <span class="title">A New Drive-by Method for Bridge Damage Inspection Based on Characteristic Wavelet Coefficient</span><br>
+                <a href="https://example.com/paper5" class="title">A New Drive-by Method for Bridge Damage Inspection Based on Characteristic Wavelet Coefficient</a><br>
                 <span class="authors">Tingpeng Zhang, Ziluo Xiong, Jin Zhu, ..., Yongle Li</span><br>
                 <span class="journal">Journal of Sound and Vibration</span>, February 2023<br>
                 <span class="status">Article, Full-text available</span>
