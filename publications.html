@@ -73,56 +73,105 @@
     </footer>
 
     <script>
-        // Google Scholar 用户ID（从您的链接中提取）
+        // Google Scholar 用户ID
         const userId = '_vgmAQMAAAAJ';
+        
+        // Fallback 数据（基于您的最新 Scholar 页面，2025-10-25）
+        const fallbackPubs = [
+            {
+                title: 'Extracting bridge frequencies from the dynamic responses of moving and non-moving vehicles',
+                authors: 'T Zhang, Z Xiong, J Zhu, K Zheng, M Wu, Y Li',
+                journal: 'Journal of Sound and Vibration 564, 117865',
+                year: '2023',
+                citations: 18,
+                citation_id: 'd1gkVwhDpl0C'
+            },
+            {
+                title: 'A new drive-by method for bridge damage inspection based on characteristic wavelet coefficient',
+                authors: 'T Zhang, J Zhu, Z Xiong, K Zheng, M Wu',
+                journal: 'Buildings 13 (2), 397',
+                year: '2023',
+                citations: 14,
+                citation_id: 'u-x6o8ySG0sC'
+            },
+            {
+                title: 'Machine learning-empowered intelligent vehicle–bridge systems: Current status and future prospects',
+                authors: 'J Zhu, W Cheng, T Zhang, Z Xiong, M Wu, Y Li',
+                journal: 'Structures 74, 108598',
+                year: '2025',
+                citations: 4,
+                citation_id: '9yKSN-GCB0IC'
+            },
+            {
+                title: 'Extracting bridge frequencies and damping ratios using damped vibrations of a non-moving vehicle',
+                authors: 'T Zhang, Z Xiong, J Zhu, W Cheng, M Wu, H Bo, Y Li',
+                journal: 'Mechanical Systems and Signal Processing 236, 112968',
+                year: '2025',
+                citations: 2,
+                citation_id: '2osOgNQ5qMEC'
+            }
+        ];
+        
+        // 渲染函数
+        function renderPublications(pubs) {
+            const pubList = document.getElementById('pub-list');
+            if (pubs.length === 0) {
+                pubList.innerHTML = '<p>No publications found.</p>';
+                return;
+            }
+            let html = '<ul>';
+            pubs.forEach(pub => {
+                const link = pub.citation_id ? `https://scholar.google.com/citations?view_op=view_citation&hl=en&user=${userId}&citation_for_view=${userId}:${pub.citation_id}` : '#';
+                html += `
+                    <li>
+                        <a href="${link}" class="title" target="_blank">${pub.title}</a><br>
+                        <span class="authors">${pub.authors}</span><br>
+                        <span class="journal">${pub.journal}</span>, ${pub.year}<br>
+                        <span class="status">Citations: ${pub.citations}</span>
+                    </li>
+                `;
+            });
+            html += '</ul>';
+            pubList.innerHTML = html;
+        }
         
         // 异步加载出版物
         async function loadPublications() {
             const pubList = document.getElementById('pub-list');
             try {
-                // 从 Google Scholar API 抓取数据（公开端点）
-                const response = await fetch(`https://scholar.google.com/citations?user=${userId}&hl=en&oi=bibs`);
-                if (!response.ok) throw new Error('Failed to fetch');
+                // 使用代理绕过 CORS
+                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(`https://scholar.google.com/citations?user=${userId}&hl=en&oi=bibs`)}`;
+                const response = await fetch(proxyUrl);
+                if (!response.ok) throw new Error('Failed to fetch via proxy');
                 
-                // 解析 JSON（Scholar 返回 JSONP，但我们用简单方式处理；实际中可优化）
-                const text = await response.text();
-                // 提取 JSON 部分（Scholar 的响应是 JSONP 包裹的 JSON）
-                const jsonMatch = text.match(/window\.GLOBAL_CONFIG\s*=\s*({.*?});/);
-                if (!jsonMatch) throw new Error('Invalid response format');
+                const data = await response.json();
+                const htmlContent = data.contents; // 代理返回的 HTML
                 
-                const data = JSON.parse(jsonMatch[1]);
-                const pubs = data.cites || []; // 出版物数组
-                
-                if (pubs.length === 0) {
-                    pubList.innerHTML = '<p>No publications found.</p>';
-                    return;
+                // 尝试提取 JSON（更宽松匹配）
+                const jsonMatches = htmlContent.match(/window\.[A-Z_]+[\s\S]*?=\s*({[\s\S]*?});/);
+                if (jsonMatches && jsonMatches[1]) {
+                    const parsed = JSON.parse(jsonMatches[1]);
+                    const pubs = parsed.cites || parsed.BIB || []; // 支持不同变量名
+                    if (pubs.length > 0) {
+                        const formattedPubs = pubs.map(pub => ({
+                            title: pub.title || pub.num,
+                            authors: pub.authors || pub.au,
+                            journal: pub.publication || pub.pub,
+                            year: pub.year || pub.y,
+                            citations: pub.num_citations || 0,
+                            citation_id: pub.citation_id || pub.id
+                        }));
+                        renderPublications(formattedPubs.slice(0, 20));
+                        return;
+                    }
                 }
                 
-                // 生成 HTML 列表
-                let html = '<ul>';
-                pubs.slice(0, 20).forEach(pub => { // 限制前20篇
-                    const title = pub.title || 'Untitled';
-                    const authors = pub.authors || 'Unknown authors';
-                    const journal = pub.publication || 'Unknown journal';
-                    const year = pub.year || 'N/A';
-                    const citations = pub.num_citations || 0;
-                    const link = pub.citation_id ? `https://scholar.google.com/citations?view_op=view_citation&hl=en&user=${userId}&citation_for_view=${userId}:${pub.citation_id}` : '#';
-                    
-                    html += `
-                        <li>
-                            <a href="${link}" class="title" target="_blank">${title}</a><br>
-                            <span class="authors">${authors}</span><br>
-                            <span class="journal">${journal}</span>, ${year}<br>
-                            <span class="status">Citations: ${citations}</span>
-                        </li>
-                    `;
-                });
-                html += '</ul>';
-                
-                pubList.innerHTML = html;
+                // 如果 JSON 失败，显示错误并 fallback
+                throw new Error('JSON parse failed');
             } catch (error) {
-                console.error('Error loading publications:', error);
-                pubList.innerHTML = '<p>Error loading publications. Please refresh or check console.</p>';
+                console.error('Dynamic load error:', error);
+                pubList.innerHTML = '<p>Dynamic load failed, using cached data from Scholar (last updated Oct 2025).</p>';
+                renderPublications(fallbackPubs);
             }
         }
         
