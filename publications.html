@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publications</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: 'Times New Roman', Times, serif;
-        }
         .publications {
             margin-top: 20px;
             text-align: center;
@@ -17,10 +15,13 @@
             text-align: left;
             display: inline-block;
             width: 80%;
+            padding: 0; /* 避免与 styles.css 冲突 */
+            list-style: none; /* 确保与 nav 一致 */
         }
         .publications li {
             margin-bottom: 15px;
-            font-size: 16px;
+            font-family: 'Roboto', sans-serif; /* 使用项目初始定义的 Roboto */
+            font-size: 0.9em; /* 与 p 标签一致 */
             line-height: 1.5;
         }
         .publications li .title {
@@ -33,11 +34,12 @@
             color: #555;
         }
         .publications li a {
-            color: #1e90ff;
+            color: #1e90ff; /* 与 info a:hover 颜色协调 */
             text-decoration: none;
         }
         .publications li a:hover {
             text-decoration: underline;
+            color: #ffcc00; /* 与 nav a:hover 一致 */
         }
         #pub-list {
             margin-top: 10px;
