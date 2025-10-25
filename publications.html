@@ -11,14 +11,16 @@
             margin-top: 20px;
             text-align: center;
         }
+        .publications ul {
+            text-align: left;
+            display: inline-block;
+            width: 80%;
+        }
         .publications li {
             margin-bottom: 15px;
             font-family: 'Roboto', sans-serif;
             font-size: 16px;
             line-height: 1.5;
-            text-align: left;
-            display: inline-block;
-            width: 80%;
         }
         .publications li .title {
             font-weight: bold;
@@ -35,6 +37,13 @@
         }
         .publications li a:hover {
             text-decoration: underline;
+        }
+        #pub-list {
+            margin-top: 10px;
+        }
+        .loading {
+            color: #666;
+            font-style: italic;
         }
     </style>
 </head>
@@ -54,42 +63,71 @@
 
     <div class="container">
         <h2 style="text-align: center;">Publications</h2>
-        <ul class="publications">
-            <li>
-                <a href="https://arxiv.org/abs/2505.18579" class="title">Mechanical in-sensor computing: A programmable meta-sensor for structural damage classification without external electronic power</a><br>
-                <span class="authors">Tingpeng Zhang, Xuzhang Peng, Mingyuan Zhou, ..., Zhilu Lai</span><br>
-                <span class="journal">Mechanical Systems and Signal Processing</span>, September 2025<br>
-                <span class="status">Article, Private full-text</span>
-            </li>
-            <li>
-                <a href="https://www.sciencedirect.com/journal/mechanical-systems-and-signal-processing" class="title">Extracting bridge frequencies and damping ratios using damped vibrations of a non-moving vehicle</a><br>
-                <span class="authors">Tingpeng Zhang, Ziluo Xiong, Jin Zhu, ..., Yongle Li</span><br>
-                <span class="journal">Mechanical Systems and Signal Processing</span>, August 2025<br>
-                <span class="status">Article, Private full-text</span>
-            </li>
-            <li>
-                <a href="https://www.sciencedirect.com/science/article/abs/pii/S2352012425004126" class="title">Machine learning-empowered intelligent vehicle–bridge systems: Current status and future prospects</a><br>
-                <span class="authors">Jin Zhu, Wei Cheng, Tingpeng Zhang, ..., Yongle Li</span><br>
-                <span class="journal">Structures</span>, March 2025<br>
-                <span class="status">Article, Private full-text</span>
-            </li>
-            <li>
-                <a href="https://www.sciencedirect.com/science/article/abs/pii/S0022460X23003140" class="title">Extracting Bridge Frequencies from The Dynamic Responses of Moving and Non-moving Vehicles</a><br>
-                <span class="authors">Tingpeng Zhang, Ziluo Xiong, Jin Zhu, ..., Yongle Li</span><br>
-                <span class="journal">Journal of Sound and Vibration</span>, June 2023<br>
-                <span class="status">Article, Private full-text</span>
-            </li>
-            <li>
-                <a href="https://www.mdpi.com/2075-5309/13/2/397" class="title">A New Drive-by Method for Bridge Damage Inspection Based on Characteristic Wavelet Coefficient</a><br>
-                <span class="authors">Tingpeng Zhang, Ziluo Xiong, Jin Zhu, ..., Yongle Li</span><br>
-                <span class="journal">Journal of Sound and Vibration</span>, February 2023<br>
-                <span class="status">Article, Full-text available</span>
-            </li>
-        </ul>
+        <div class="publications">
+            <div id="pub-list" class="loading">Loading publications from Google Scholar...</div>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2025 Tingpeng Zhang</p>
     </footer>
+
+    <script>
+        // Google Scholar 用户ID（从您的链接中提取）
+        const userId = '_vgmAQMAAAAJ';
+        
+        // 异步加载出版物
+        async function loadPublications() {
+            const pubList = document.getElementById('pub-list');
+            try {
+                // 从 Google Scholar API 抓取数据（公开端点）
+                const response = await fetch(`https://scholar.google.com/citations?user=${userId}&hl=en&oi=bibs`);
+                if (!response.ok) throw new Error('Failed to fetch');
+                
+                // 解析 JSON（Scholar 返回 JSONP，但我们用简单方式处理；实际中可优化）
+                const text = await response.text();
+                // 提取 JSON 部分（Scholar 的响应是 JSONP 包裹的 JSON）
+                const jsonMatch = text.match(/window\.GLOBAL_CONFIG\s*=\s*({.*?});/);
+                if (!jsonMatch) throw new Error('Invalid response format');
+                
+                const data = JSON.parse(jsonMatch[1]);
+                const pubs = data.cites || []; // 出版物数组
+                
+                if (pubs.length === 0) {
+                    pubList.innerHTML = '<p>No publications found.</p>';
+                    return;
+                }
+                
+                // 生成 HTML 列表
+                let html = '<ul>';
+                pubs.slice(0, 20).forEach(pub => { // 限制前20篇
+                    const title = pub.title || 'Untitled';
+                    const authors = pub.authors || 'Unknown authors';
+                    const journal = pub.publication || 'Unknown journal';
+                    const year = pub.year || 'N/A';
+                    const citations = pub.num_citations || 0;
+                    const link = pub.citation_id ? `https://scholar.google.com/citations?view_op=view_citation&hl=en&user=${userId}&citation_for_view=${userId}:${pub.citation_id}` : '#';
+                    
+                    html += `
+                        <li>
+                            <a href="${link}" class="title" target="_blank">${title}</a><br>
+                            <span class="authors">${authors}</span><br>
+                            <span class="journal">${journal}</span>, ${year}<br>
+                            <span class="status">Citations: ${citations}</span>
+                        </li>
+                    `;
+                });
+                html += '</ul>';
+                
+                pubList.innerHTML = html;
+            } catch (error) {
+                console.error('Error loading publications:', error);
+                pubList.innerHTML = '<p>Error loading publications. Please refresh or check console.</p>';
+            }
+        }
+        
+        // 页面加载完成后执行
+        window.addEventListener('load', loadPublications);
+    </script>
 </body>
 </html>
