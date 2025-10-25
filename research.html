@@ -6,10 +6,11 @@
     <title>Research</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>My research</h1>
+        <h1>My Research</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -21,18 +22,62 @@
         </nav>
     </header>
 
-    <div class="container">
+    <div class="news-container">
         <h2>Research Interests</h2>
-        <p>My research focuses on the following areas:</p>
-        <ul>
-            <li>Structural Health Monitoring (SHM)</li>
-            <li>Vehicle-bridge Interaction (VBI)</li>
-            <li>Machine Learning Applications in Transportation</li>
-        </ul>
+
+        <div class="news-item">
+            <div class="news-text">
+                <p><strong>Structural Health Monitoring (SHM)</strong></p>
+                <p>Focuses on damage detection, model updating, and modal identification to ensure the safety and longevity of structures.</p>
+            </div>
+            <div class="news-image">
+                <img src="hkust.png" alt="SHM" onclick="openModal(this)" />
+            </div>
+        </div>
+
+        <div class="news-item">
+            <div class="news-text">
+                <p><strong>Vehicle-bridge Interaction (VBI)</strong></p>
+                <p>Explores vehicle scanning methods, vehicular parameter identification, and road roughness estimation for bridge assessment.</p>
+            </div>
+            <div class="news-image">
+                <img src="hkust.png" alt="VBI" onclick="openModal(this)" />
+            </div>
+        </div>
+
+        <div class="news-item">
+            <div class="news-text">
+                <p><strong>Machine Learning Applications in Transportation</strong></p>
+                <p>Leverages deep learning, computer vision, and transfer learning to enhance intelligent transportation systems.</p>
+            </div>
+            <div class="news-image">
+                <img src="hkust.png" alt="ML in Transportation" onclick="openModal(this)" />
+            </div>
+        </div>
+    </div>
+
+    <!-- 模态框 -->
+    <div id="myModal" class="modal" style="display: none;">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
     </div>
 
     <footer>
         <p>&copy; 2024 Tingpeng Zhang</p>
     </footer>
+
+    <script>
+        function openModal(img) {
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("img01");
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
 </body>
 </html>
