@@ -6,49 +6,6 @@
     <title>Publications</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .publications {
-            margin-top: 20px;
-            text-align: center;
-        }
-        .publications ul {
-            text-align: left;
-            display: inline-block;
-            width: 80%;
-            padding: 0; /* 避免与 styles.css 冲突 */
-            list-style: none; /* 确保与 nav 一致 */
-        }
-        .publications li {
-            margin-bottom: 15px;
-            font-family: 'Roboto', sans-serif; /* 使用项目初始定义的 Roboto */
-            font-size: 0.9em; /* 与 p 标签一致 */
-            line-height: 1.5;
-        }
-        .publications li .title {
-            font-weight: bold;
-        }
-        .publications li .journal {
-            font-style: italic;
-        }
-        .publications li .status {
-            color: #555;
-        }
-        .publications li a {
-            color: #1e90ff; /* 与 info a:hover 颜色协调 */
-            text-decoration: none;
-        }
-        .publications li a:hover {
-            text-decoration: underline;
-            color: #ffcc00; /* 与 nav a:hover 一致 */
-        }
-        #pub-list {
-            margin-top: 10px;
-        }
-        .loading {
-            color: #666;
-            font-style: italic;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -65,121 +22,17 @@
     </header>
 
     <div class="container">
-        <h2 style="text-align: center;">Publications</h2>
-        <div class="publications">
-            <div id="pub-list" class="loading">Loading publications from Google Scholar...</div>
-        </div>
+        <h2>Publications</h2>
+        <p>Here are some of my recent publications:</p>
+        <ul>
+            <li>Publication 1: Title, Journal, Year.</li>
+            <li>Publication 2: Title, Journal, Year.</li>
+            <li>Publication 3: Title, Journal, Year.</li>
+        </ul>
     </div>
 
     <footer>
-        <p>&copy; 2025 Tingpeng Zhang</p>
+        <p>&copy; 2024 Tingpeng Zhang</p>
     </footer>
-
-    <script>
-        // Google Scholar 用户ID
-        const userId = '_vgmAQMAAAAJ';
-        
-        // Fallback 数据（基于您的最新 Scholar 页面，2025-10-25）
-        const fallbackPubs = [
-            {
-                title: 'Extracting bridge frequencies from the dynamic responses of moving and non-moving vehicles',
-                authors: 'T Zhang, Z Xiong, J Zhu, K Zheng, M Wu, Y Li',
-                journal: 'Journal of Sound and Vibration 564, 117865',
-                year: '2023',
-                citations: 18,
-                citation_id: 'd1gkVwhDpl0C'
-            },
-            {
-                title: 'A new drive-by method for bridge damage inspection based on characteristic wavelet coefficient',
-                authors: 'T Zhang, J Zhu, Z Xiong, K Zheng, M Wu',
-                journal: 'Buildings 13 (2), 397',
-                year: '2023',
-                citations: 14,
-                citation_id: 'u-x6o8ySG0sC'
-            },
-            {
-                title: 'Machine learning-empowered intelligent vehicle–bridge systems: Current status and future prospects',
-                authors: 'J Zhu, W Cheng, T Zhang, Z Xiong, M Wu, Y Li',
-                journal: 'Structures 74, 108598',
-                year: '2025',
-                citations: 4,
-                citation_id: '9yKSN-GCB0IC'
-            },
-            {
-                title: 'Extracting bridge frequencies and damping ratios using damped vibrations of a non-moving vehicle',
-                authors: 'T Zhang, Z Xiong, J Zhu, W Cheng, M Wu, H Bo, Y Li',
-                journal: 'Mechanical Systems and Signal Processing 236, 112968',
-                year: '2025',
-                citations: 2,
-                citation_id: '2osOgNQ5qMEC'
-            }
-        ];
-        
-        // 渲染函数
-        function renderPublications(pubs) {
-            const pubList = document.getElementById('pub-list');
-            if (pubs.length === 0) {
-                pubList.innerHTML = '<p>No publications found.</p>';
-                return;
-            }
-            let html = '<ul>';
-            pubs.forEach(pub => {
-                const link = pub.citation_id ? `https://scholar.google.com/citations?view_op=view_citation&hl=en&user=${userId}&citation_for_view=${userId}:${pub.citation_id}` : '#';
-                html += `
-                    <li>
-                        <a href="${link}" class="title" target="_blank">${pub.title}</a><br>
-                        <span class="authors">${pub.authors}</span><br>
-                        <span class="journal">${pub.journal}</span>, ${pub.year}<br>
-                        <span class="status">Citations: ${pub.citations}</span>
-                    </li>
-                `;
-            });
-            html += '</ul>';
-            pubList.innerHTML = html;
-        }
-        
-        // 异步加载出版物
-        async function loadPublications() {
-            const pubList = document.getElementById('pub-list');
-            try {
-                // 使用代理绕过 CORS
-                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(`https://scholar.google.com/citations?user=${userId}&hl=en&oi=bibs`)}`;
-                const response = await fetch(proxyUrl);
-                if (!response.ok) throw new Error('Failed to fetch via proxy');
-                
-                const data = await response.json();
-                const htmlContent = data.contents; // 代理返回的 HTML
-                
-                // 尝试提取 JSON（更宽松匹配）
-                const jsonMatches = htmlContent.match(/window\.[A-Z_]+[\s\S]*?=\s*({[\s\S]*?});/);
-                if (jsonMatches && jsonMatches[1]) {
-                    const parsed = JSON.parse(jsonMatches[1]);
-                    const pubs = parsed.cites || parsed.BIB || []; // 支持不同变量名
-                    if (pubs.length > 0) {
-                        const formattedPubs = pubs.map(pub => ({
-                            title: pub.title || pub.num,
-                            authors: pub.authors || pub.au,
-                            journal: pub.publication || pub.pub,
-                            year: pub.year || pub.y,
-                            citations: pub.num_citations || 0,
-                            citation_id: pub.citation_id || pub.id
-                        }));
-                        renderPublications(formattedPubs.slice(0, 20));
-                        return;
-                    }
-                }
-                
-                // 如果 JSON 失败，显示错误并 fallback
-                throw new Error('JSON parse failed');
-            } catch (error) {
-                console.error('Dynamic load error:', error);
-                pubList.innerHTML = '<p>Dynamic load failed, using cached data from Scholar (last updated Oct 2025).</p>';
-                renderPublications(fallbackPubs);
-            }
-        }
-        
-        // 页面加载完成后执行
-        window.addEventListener('load', loadPublications);
-    </script>
 </body>
 </html>
