@@ -6,51 +6,7 @@
     <title>News</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* 模态框样式 */
-        .modal {
-            display: none; /* 默认隐藏 */
-            position: fixed; /* 固定定位 */
-            z-index: 1000; /* 在最上层 */
-            left: 0;
-            top: 0;
-            width: 100%; /* 全屏 */
-            height: 100%; /* 全屏 */
-            overflow: auto; /* 如果需要，添加滚动条 */
-            background-color: rgba(0, 0, 0, 0.8); /* 半透明背景 */
-            display: flex; /* 使用flex布局 */
-            justify-content: center; /* 水平居中对齐 */
-            align-items: center; /* 垂直居中对齐 */
-        }
-
-        .modal-content {
-            display: block;
-            max-width: 90%; /* 最大宽度 */
-            max-height: 90%; /* 最大高度 */
-        }
-
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* 链接图标样式 */
-        .icon-link {
-            color: #f0f0f0; /* 浅色系 */
-            margin-left: 5px; /* 图标与文本之间的间距 */
-            font-size: 1em; /* 图标大小 */
-            text-decoration: none; /* 移除下划线 */
-        }
-
-        .icon-link:hover {
-            color: #ffcc00; /* 悬停时改变颜色 */
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
@@ -66,7 +22,7 @@
         </nav>
     </header>
 
-    <div class="news-container"> <!-- 特定类 -->
+    <div class="news-container">
         <h2>Latest News</h2>
 
         <div class="news-item">
@@ -114,15 +70,14 @@
         function openModal(img) {
             const modal = document.getElementById("myModal");
             const modalImg = document.getElementById("img01");
-            modal.style.display = "flex"; // 使用flex布局
+            modal.style.display = "flex";
             modalImg.src = img.src;
         }
 
         function closeModal() {
             const modal = document.getElementById("myModal");
-            modal.style.display = "none"; // 隐藏模态框
+            modal.style.display = "none";
         }
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 </body>
 </html>
