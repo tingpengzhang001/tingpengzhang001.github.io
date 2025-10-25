@@ -1,197 +1,307 @@
 /* 通用样式 */
 body {
-    font-family: 'Lora', serif; /* 使用 Lora 作为正文字体 */
+    font-family: 'Lora', serif;
     line-height: 1.6;
     margin: 0;
 }
 
 /* 导航栏样式 */
 header {
-    background: #003366; /* 深蓝色 */
+    background: #003366;
     color: white;
-    padding: 10px 0; /* 调整顶部和底部的内边距 */
+    padding: 10px 0;
     text-align: center;
-    width: 100%; /* 使header宽度占满 */
+    width: 100%;
 }
 
 nav ul {
     padding: 0;
     list-style: none;
-    display: flex; /* 使用flex布局 */
-    align-items: center; /* 垂直居中对齐 */
-    justify-content: center; /* 水平居中对齐 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 10px 15px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
-}
-
-nav {
-    line-height: 1.5; /* 调整导航栏的行高，以控制高度 */
+    font-size: 1em;
 }
 
 nav ul li a.active {
-    font-weight: bold; /* 加粗当前链接 */
-    text-decoration: underline; /* 下划线表示当前链接 */
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 nav ul li a:hover {
-    text-decoration: underline; /* 悬停时添加下划线 */
-    color: #ffcc00; /* 悬停时改变颜色 */
+    text-decoration: underline;
+    color: #ffcc00;
 }
 
 /* index.html 特定样式 */
 .index-container {
-    display: flex; /* 使用Flexbox布局 */
-    flex-direction: column; /* 垂直方向布局 */
-    align-items: center; /* 水平居中对齐 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
 }
 
 .container {
-    display: flex; /* 使用Flexbox布局 */
-    justify-content: space-between; /* 使内容左右分布 */
-    max-width: 1200px; /* 设置最大宽度 */
-    width: 100%; /* 使容器宽度占满 */
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 .photo {
-    flex: 1; /* 左侧照片占据1份 */
-    max-width: 300px; /* 照片最大宽度 */
-    margin-right: 20px; /* 照片与信息之间的间距 */
+    flex: 1;
+    max-width: 300px;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .info {
-    flex: 2; /* 右侧信息占据2份 */
+    flex: 2;
     display: flex;
-    flex-direction: column; /* 垂直方向布局 */
-    justify-content: center; /* 垂直居中对齐 */
+    flex-direction: column;
+    justify-content: center;
 }
 
 .button-container {
-    display: flex; /* 使用flex布局 */
-    flex-direction: column; /* 垂直方向布局 */
-    margin-left: 20px; /* 添加左边距 */
-    flex: 1; /* 让按钮部分占据1份 */
-    max-width: 250px; /* 设置按钮容器的最大宽度 */
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    flex: 1;
+    max-width: 250px;
 }
 
 h2 {
-    font-size: 2em; /* 增大字体 */
-    font-weight: bold; /* 加粗 */
-    margin: 0; /* 移除默认边距 */
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0;
 }
 
 h3 {
-    font-size: 1.5em; /* 增大字体 */
-    font-weight: bold; /* 加粗 */
-    margin: 10px 0; /* 添加上下边距 */
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px 0;
 }
 
 p {
-    font-size: 0.9em; /* 调整其他文本的字体大小 */
-    margin: 5px 0; /* 添加上下边距 */
+    font-size: 0.9em;
+    margin: 5px 0;
 }
 
 footer {
     text-align: center;
     padding: 20px;
     background: #f4f4f4;
-    width: 100%; /* 使footer宽度占满 */
+    width: 100%;
 }
 
 /* 按钮样式 */
-.button {
-    display: flex; /* 使用flex布局 */
-    align-items: center; /* 垂直居中对齐 */
-    justify-content: center; /* 水平居中对齐 */
-    background-color: #003366; /* 按钮背景色 */
-    color: white; /* 按钮文字颜色 */
-    padding: 10px 15px; /* 按钮内边距 */
-    margin: 5px; /* 按钮间距 */
-    text-decoration: none; /* 移除下划线 */
-    border-radius: 5px; /* 圆角 */
-    transition: background-color 0.3s; /* 添加过渡效果 */
-    max-width: 100%; /* 确保按钮宽度不超过容器 */
+.button, .quote-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #003366;
+    color: white;
+    padding: 10px 15px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    max-width: 100%;
 }
 
-.button i {
-    margin-right: 8px; /* 图标与文本之间的间距 */
+.button i, .quote-button i {
+    margin-right: 8px;
 }
 
-.button:hover {
-    background-color: #00509e; /* 悬停时改变背景色 */
-}
-
-/* 座右铭按钮样式 */
-.quote-button {
-    display: flex; /* 使用flex布局 */
-    align-items: center; /* 垂直居中对齐 */
-    justify-content: center; /* 水平居中对齐 */
-    background-color: #003366; /* 按钮背景色 */
-    color: white; /* 按钮文字颜色 */
-    padding: 10px 15px; /* 按钮内边距 */
-    margin: 5px; /* 按钮间距 */
-    text-decoration: none; /* 移除下划线 */
-    border-radius: 5px; /* 圆角 */
-    transition: background-color 0.3s; /* 添加过渡效果 */
-    max-width: 100%; /* 确保按钮宽度不超过容器 */
-}
-
-.quote-button i {
-    margin-right: 8px; /* 图标与文本之间的间距 */
+.button:hover, .quote-button:hover {
+    background-color: #00509e;
 }
 
 /* 链接样式 */
 .info a {
-    color: inherit; /* 继承父元素的颜色 */
-    text-decoration: none; /* 默认不显示下划线 */
+    color: inherit;
+    text-decoration: none;
 }
 
 .info a:hover {
-    text-decoration: underline; /* 悬停时添加下划线 */
-    color: #ffcc00; /* 悬停时改变颜色 */
+    text-decoration: underline;
+    color: #ffcc00;
 }
 
 /* news.html 特定样式 */
 .news-container {
-    max-width: 800px; /* 设置最大宽度 */
-    width: 100%; /* 使容器宽度占满 */
-    padding: 20px; /* 添加内边距 */
-    text-align: center; /* 文字居中对齐 */
-    margin: 0 auto; /* 使容器居中 */
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .news-item {
-    display: flex; /* 使用flex布局 */
-    align-items: center; /* 垂直居中对齐 */
-    margin: 20px 0; /* 添加上下间距 */
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
 }
 
 .news-text {
-    flex: 1; /* 文字部分占据剩余空间 */
-    margin-right: 10px; /* 添加右边距 */
+    flex: 1;
+    margin-right: 10px;
 }
 
 .news-image img {
-    max-width: 150px; /* 设置图片最大宽度 */
-    border-radius: 10px; /* 添加圆角 */
-    cursor: pointer; /* 鼠标悬停时显示为手型 */
+    max-width: 150px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.icon-link {
+    color: #f0f0f0;
+    margin-left: 5px;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.icon-link:hover {
+    color: #ffcc00;
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    .news-item {
-        flex-direction: column; /* 在小屏幕上堆叠内容 */
-        align-items: center; /* 居中对齐 */
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        text-align: center;
     }
+
+    .photo {
+        max-width: 100%;
+        margin-right: 0;
+    }
+
+    .info {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .button-container {
+        max-width: 100%;
+        margin-left: 0;
+        align-items: center;
+    }
+
+    .button, .quote-button {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    p, li {
+        font-size: 0.85em;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    nav ul li a {
+        font-size: 0.9em;
+    }
+
+    .news-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .news-text {
-        margin-right: 0; /* 移除右边距 */
-        margin-bottom: 10px; /* 添加底边距 */
+        margin-right: 0;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .news-image img {
+        max-width: 100%;
+        width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .photo img {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .button, .quote-button {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .news-image img {
+        width: 100px;
+    }
+
+    .modal-content {
+        max-width: 95%;
+        max-height: 80%;
+    }
+
+    .close {
+        font-size: 25px;
+        top: 10px;
+        right: 10px;
     }
 }
